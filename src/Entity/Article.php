@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -23,6 +25,7 @@ class Article
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Range(min=30, max=300)
      */
     private $contenu;
 
@@ -37,6 +40,7 @@ class Article
     private $auteur;
 
     /**
+     * @Assert\Type(type="text")
      * @ORM\Column(type="string", length=255)
      */
     private $categorie;
