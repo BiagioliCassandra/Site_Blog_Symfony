@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un article!{% endblock %}
+
+{% block body %}
+<div class="w-50 m-4">
+    <h1>{{ controller_name }}!</h1>
+    <a class="btn btn-info my-4" href="{{ path('article') }}">Retour à l'accueil</a>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a class="btn btn-info">Créér</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
