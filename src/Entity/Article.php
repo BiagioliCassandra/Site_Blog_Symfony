@@ -19,13 +19,22 @@ class Article
     private $id;
 
     /**
+     * @Assert\Length(
+     *      min = 2, 
+     *      max = 250,
+     *      minMessage = "Le titre de votre article doit contenir 2 caractères ou plus",
+     *      maxMessage = "Le titre de votre article doit contenir moins de 250 caractères"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $titre;
 
     /**
+     * @Assert\Length(
+     *      min = 30, 
+     *      minMessage = "Le contenu de votre article doit contenir minimum 30 caractères"
+     * )
      * @ORM\Column(type="text")
-     * @Assert\Range(min=30, max=300)
      */
     private $contenu;
 
@@ -35,6 +44,10 @@ class Article
     private $date_at;
 
     /**
+     * @Assert\Length(
+     *      max = 50,
+     *      maxMessage = "Le nom de l'auteur de votre article ne doit pas dépasser 50 caractères"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $auteur;
@@ -131,7 +144,7 @@ class Article
     {
         if(isset($contenu))
         {
-            $max = substr($contenu, 0, 50);
+            $max = substr($contenu, 0, 49);
             return $max;
         }
     }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Service\ForbiddenWord;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,11 +37,15 @@ class ArticleController extends AbstractController
             ->getRepository(Article::class)
             ->find($id);
 
+        // $contenu = remplaceWord($article->getContenu);
+        // if(empty($contenu)){}
+            
         return $this->render('article/single.html.twig', [
             'controller_name' => 'La page single',
             'article' => $article,
             'id' => $id
         ]);
+
     }
 
     /**
