@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les articles!{% endblock %}
+
+{% block body %}
+<div class="m-4">
+    <h1>{{ controller_name }}!</h1>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">titre</th>
+            <th scope="col">contenu</th>
+            {# <th scope="col">date</th> #}
+            <th scope="col">auteur</th>
+            <th scope="col">categorie</th>
+            <th scope="col">nombre vues</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <th scope="row">{{ article.id }}</th>
+                <td><a href="{{ path('single', { 'id' : article.id }) }}">{{ article.titre }}</a></td>
+                <td>{{ article.findAllContenuMax(article.contenu) }}</td>
+                {# <td>{{ article.dateAt }}</td> #}
+                <td>{{ article.auteur }}</td>
+                <td>{{ article.categorie }}</td>
+                <td>{{ article.nombreVues }}</td>
+                {# <td> #}
+                    {# <a href="{{ path('admin_article_edit') }}">Modifier un article</a> #}
+                    {# <a href="{{ path('admin_article_delete') }}">Supprimer un article</a> #}
+                {# </td> #}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
