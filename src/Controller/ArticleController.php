@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/", name="article")
+     * @Route("/article", name="article")
      */
     public function index() : Response
     {
