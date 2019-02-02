@@ -5,6 +5,8 @@
 {% block body %}
 <div class="m-4">
     <h1>{{ controller_name }}!</h1>
+    <a class="btn btn-info my-4" href="{{ path('admin') }}">Espace admin</a>
+    <a class="btn btn-warning text-white my-4" href="{{ path('logout') }}">Déconnexion</a>
     <table class="table">
         <thead class="thead-dark">
           <tr>
