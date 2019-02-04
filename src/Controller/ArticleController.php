@@ -36,9 +36,9 @@ class ArticleController extends AbstractController
         $article = $this->getDoctrine()
             ->getRepository(Article::class)
             ->find($id);
-
-        // $contenu = remplaceWord($article->getContenu);
-        // if(empty($contenu)){}
+        
+        //$contenu = remplaceWord($article->getContenu());
+        //if(empty($contenu)){}
             
         return $this->render('article/single.html.twig', [
             'controller_name' => 'La page single',
