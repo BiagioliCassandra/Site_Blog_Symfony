@@ -13,7 +13,7 @@
             <th scope="col">id</th>
             <th scope="col">titre</th>
             <th scope="col">contenu</th>
-            {# <th scope="col">date</th> #}
+            <th scope="col">date</th>
             <th scope="col">auteur</th>
             <th scope="col">categorie</th>
             <th scope="col">nombre vues</th>
@@ -26,7 +26,7 @@
                 <th scope="row">{{ article.id }}</th>
                 <td><a href="{{ path('single', { 'id' : article.id }) }}">{{ article.titre }}</a></td>
                 <td>{{ article.findAllContenuMax(article.contenu) }}</td>
-                {# <td>{{ article.dateAt }}</td> #}
+                <td>{{ article.dateAt|date("d-m-Y") }}</td>
                 <td>{{ article.auteur }}</td>
                 <td>{{ article.categorie }}</td>
                 <td>{{ article.nombreVues }}</td>
